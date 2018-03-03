@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "920833532597",
+    "firebase_url": "https://qahwagy-fcfee.firebaseio.com",
+    "project_id": "qahwagy-fcfee",
+    "storage_bucket": "qahwagy-fcfee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920833532597:android:b2c3d2109dd0a4b6",
+        "android_client_info": {
+          "package_name": "com.example.mayman.qahwagy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920833532597-40bn4k31lfj48f2ivu9eg0so85m5p17f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mayman.qahwagy",
+            "certificate_hash": "057b3a9f8d9cbc24d7adf758a27a64d6dd67b1fb"
+          }
+        },
+        {
+          "client_id": "920833532597-2ff961fclshuljirers3kcvm7tleka6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mayman.qahwagy",
+            "certificate_hash": "694e79320ddbb67c0910e7177953f999b926f4bd"
+          }
+        },
+        {
+          "client_id": "920833532597-pvvrq53fspfjqsrr6lgd95cm5td9180j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbOxhUobZYlLZMK6-NbNHphlyzNU7NLqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920833532597-pvvrq53fspfjqsrr6lgd95cm5td9180j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
