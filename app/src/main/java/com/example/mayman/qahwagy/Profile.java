@@ -38,8 +38,7 @@ public class Profile extends AppCompatActivity {
     FirebaseUser firebaseUser;
 
     ImageView imageView;
-    TextView textView;
-    ArrayList<UserObjs> userObjsArrayList = new ArrayList<>();
+    ArrayList<String> userObjsArrayList = new ArrayList<>();
     RecyclerView recyclerView;
 
     DataAdapter dataAdapter;
@@ -56,7 +55,7 @@ public class Profile extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
-        dataAdapter = new DataAdapter(userObjsArrayList);
+
         imageView = findViewById(R.id.profileimg);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -98,6 +97,29 @@ public class Profile extends AppCompatActivity {
 
         mOrderDbase = FirebaseDatabase.getInstance().getReference().child("Order").child(currentUserId);
 
+
+        mOrderDbase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
+                        String data = dataSnapshot2.getValue(String.class);
+                        userObjsArrayList.add(data);
+                    }
+                }
+
+                Toast.makeText(Profile.this, ""+userObjsArrayList.size(), Toast.LENGTH_SHORT).show();
+                dataAdapter = new DataAdapter(userObjsArrayList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        recyclerView.setAdapter(dataAdapter);
+        dataAdapter.notifyDataSetChanged();
     }//end
 
     private void UploodBG() {
@@ -127,69 +149,12 @@ public class Profile extends AppCompatActivity {
                 .setAction("ACTION"));
     }
 
-    void setData() {
-
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
 
-        mOrderDbase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for ( DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
-                    String data = dataSnapshot1.getValue(String.class);
-                    Toast.makeText(Profile.this, ""+data, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }//end onStart()
-
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
-        View mView;
-
-        public UserViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-        }//end UserViewHolder
-
-        public void setName(String name) {
-            TextView textViewName = mView.findViewById(R.id.textViewNameP);
-            textViewName.setText(name);
-        }//end setName
-
-//        public void setMilk(String milk) {
-//            TextView textViewMilk = mView.findViewById(R.id.textViewMilk);
-//            textViewMilk.setText(milk);
-//        }//end setMilk
-//
-//
-//        public void setSuger(String Suger) {
-//            TextView textViewSuger = mView.findViewById(R.id.textViewSuger);
-//            textViewSuger.setText(Suger);
-//        }//end setMilk
-//
-//
-//        public void setQuant(String milk) {
-//            TextView textViewQuantity = mView.findViewById(R.id.textViewQuan);
-//            textViewQuantity.setText(milk);
-//        }//end setMilk
-//
-//
-//        public void setSize(String milk) {
-//            TextView textViewSize = mView.findViewById(R.id.textViewSize);
-//            textViewSize.setText(milk);
-//        }//end setMilk
-
-    }//end UserViewHolder
 
 
 }

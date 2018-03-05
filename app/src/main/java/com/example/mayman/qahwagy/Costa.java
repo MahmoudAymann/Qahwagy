@@ -23,6 +23,8 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             public void onClick(View view) {
                 Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",1);
+                intent.putExtra("t","قهوة عادية");
+
                 startActivity(intent);
             }
         });
@@ -34,6 +36,8 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             public void onClick(View view) {
                 Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",2);
+                intent.putExtra("t","قهوة عادية");
+
                 startActivity(intent);
 
             }
@@ -43,6 +47,8 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             @Override
             public void onClick(View view) {Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",3);
+                intent.putExtra("t","قهوة عادية");
+
                 startActivity(intent);
 
             }
@@ -52,6 +58,7 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             @Override
             public void onClick(View view) {Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",4);
+                intent.putExtra("t","قهوة عادية");
                 startActivity(intent);
 
             }
@@ -62,6 +69,8 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             public void onClick(View view) {
                 Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",5);
+                intent.putExtra("t","قهوة عادية");
+
                 startActivity(intent);
 
             }
@@ -71,6 +80,7 @@ CardView cardView,cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,ca
             @Override
             public void onClick(View view) {Intent intent = new Intent(Costa.this,OrderA.class);
                 intent.putExtra("sr",6);
+                intent.putExtra("t","قهوة عادية");
                 startActivity(intent);
             }
         });

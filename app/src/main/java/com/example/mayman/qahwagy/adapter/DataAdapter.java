@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder>{
 
 
-    private ArrayList<UserObjs> mProductsModelList;
+    private ArrayList<String> mProductsModelList;
 
-    public DataAdapter(ArrayList<UserObjs> productsModelArrayList) {
+    public DataAdapter(ArrayList<String> productsModelArrayList) {
         this.mProductsModelList = productsModelArrayList;
     }
 
@@ -58,13 +58,9 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder>{
 
         }
 
-        private void bind(final UserObjs productsModel) {
+        private void bind(final String productsModel) {
 
-            nameTV.setText(productsModel.getName());
-//            milk.setText(productsModel.getMilk());
-//            sugar.setText(productsModel.getSugar());
-//            size.setText(productsModel.getSize());
-//            quantity.setText(productsModel.getQuantity());
+            nameTV.setText(productsModel);
 
         }
     }
