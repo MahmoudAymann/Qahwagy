@@ -42,6 +42,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt1"
                         android:text="قهوة عادية"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -77,6 +78,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt2"
                         android:text="دبل شوت اسبرسو"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -111,6 +113,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt3"
                         android:text="تشيز كيك"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -145,6 +148,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt4"
                         android:text="هوت شيكولات"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -179,6 +183,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt5"
                         android:text="اسبرسو"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -213,6 +218,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt6"
                         android:text="كاراميل امريكانو مثلج"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -247,6 +253,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt7"
                         android:text="كافيه امريكانى مثلج"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -281,6 +288,7 @@
                         android:layout_weight="1"
                         tools:ignore="RtlHardcoded" />
                     <TextView
+                        android:id="@+id/txt8"
                         android:text="موكا بالشيكولاته البيضاء"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Starbucks extends AppCompatActivity {
     CardView cardView, cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,cardView7;
-
+    TextView t1,t2,t3,t4,t5,t6,t7,t8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",1);
+                intent.putExtra("t","قهوة عادية");
                 startActivity(intent);
             }
         });
@@ -32,6 +34,8 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",2);
+                intent.putExtra("t","دبل شوت اسبرسو");
+
                 startActivity(intent);
             }
         });
@@ -41,6 +45,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",3);
+                intent.putExtra("t","cafe1");
                 startActivity(intent);
             }
         });
@@ -50,6 +55,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",4);
+                intent.putExtra("t","دبل شوت اسبرسو");
                 startActivity(intent);
             }
         });
@@ -59,6 +65,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",5);
+                intent.putExtra("t","cafe2");
                 startActivity(intent);
             }
         });
@@ -68,6 +75,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",6);
+                intent.putExtra("t"," اسبرسو");
                 startActivity(intent);
             }
         });
@@ -77,6 +85,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",7);
+                intent.putExtra("t","cafe4");
                 startActivity(intent);
             }
         });
@@ -86,6 +95,7 @@ public class Starbucks extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Starbucks.this,OrderA.class);
                 intent.putExtra("sr",8);
+                intent.putExtra("t","cafe5");
                 startActivity(intent);
             }
         });

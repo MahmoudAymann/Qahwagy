@@ -5,11 +5,11 @@ package com.example.mayman.qahwagy;
  */
 
 public class UserObjs {
-    String name;
     String milk;
-    String suger;
+    String name;
     String quantity;
     String size;
+    String sugar;
 
     public String getName() {
         return name;
@@ -27,12 +27,12 @@ public class UserObjs {
         this.milk = milk;
     }
 
-    public String getSuger() {
-        return suger;
+    public String getSugar() {
+        return sugar;
     }
 
-    public void setSuger(String suger) {
-        this.suger = suger;
+    public void setSugar(String sugar) {
+        this.sugar = sugar;
     }
 
     public String getQuantity() {
@@ -55,11 +55,11 @@ public class UserObjs {
 
     }
 
-    public UserObjs(String name, String milk, String suger, String quantity, String size) {
+    public UserObjs(String name, String milk, String sugar, String quantity, String size) {
 
         this.name = name;
         this.milk = milk;
-        this.suger = suger;
+        this.sugar = sugar;
         this.quantity = quantity;
         this.size = size;
     }
