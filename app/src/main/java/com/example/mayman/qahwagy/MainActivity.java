@@ -135,8 +135,9 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_logout) {
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
         } else if (id == R.id.nav_send) {
 
         }

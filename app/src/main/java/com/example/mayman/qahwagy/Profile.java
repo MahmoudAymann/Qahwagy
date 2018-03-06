@@ -12,11 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mayman.qahwagy.adapter.DataAdapter;
 import com.example.mayman.qahwagy.service.UBloodWalpaber;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,14 +35,13 @@ import java.util.HashMap;
 
 public class Profile extends AppCompatActivity {
 
-    DatabaseReference mUsersDatabaseReference, mOrderDbase;
+    DatabaseReference mUsersDatabaseReference;
     FirebaseUser firebaseUser;
 
     ImageView imageView;
-    ArrayList<String> userObjsArrayList = new ArrayList<>();
-    RecyclerView recyclerView;
 
-    DataAdapter dataAdapter;
+    Button savebtn;
+    String currentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +51,12 @@ public class Profile extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        String currentUserId = firebaseUser.getUid();
+        currentUserId = firebaseUser.getUid();
 
-        recyclerView = findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
-
+        savebtn = findViewById(R.id.savebtn);
         imageView = findViewById(R.id.profileimg);
+
+        final EditText et1, et2;
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,8 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-
+        et1 = findViewById(R.id.edittl);
+        et2 = findViewById(R.id.editt2);
         mUsersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
         mUsersDatabaseReference.keepSynced(true);
 
@@ -78,9 +79,11 @@ public class Profile extends AppCompatActivity {
 
                 String nameDb = dataSnapshot.child("name").getValue().toString();
                 String imageDb = dataSnapshot.child("image").getValue().toString();
-
+                String mobile = dataSnapshot.child("mobile").getValue().toString();
+                String address = dataSnapshot.child("address").getValue().toString();
                 toolbar.setTitle(nameDb);
-
+                et1.setText(mobile);
+                et2.setText(address);
                 if (imageDb.length() > 10) {
                     Picasso.with(Profile.this).load(imageDb).centerCrop().resize(100, 100).into(imageView);
                 }
@@ -94,32 +97,19 @@ public class Profile extends AppCompatActivity {
 
         }); //end get&set user data
 
-
-        mOrderDbase = FirebaseDatabase.getInstance().getReference().child("Order").child(currentUserId);
-
-
-        mOrderDbase.addListenerForSingleValueEvent(new ValueEventListener() {
+        savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
-                        String data = dataSnapshot2.getValue(String.class);
-                        userObjsArrayList.add(data);
-                    }
-                }
+            public void onClick(View view) {
+                mUsersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("mobile");
+                mUsersDatabaseReference.setValue(et1.getText().toString());
 
-                Toast.makeText(Profile.this, ""+userObjsArrayList.size(), Toast.LENGTH_SHORT).show();
-                dataAdapter = new DataAdapter(userObjsArrayList);
-            }
+                mUsersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("address");
+                mUsersDatabaseReference.setValue(et2.getText().toString());
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(Profile.this, "Done", Toast.LENGTH_SHORT).show();
             }
         });
 
-        recyclerView.setAdapter(dataAdapter);
-        dataAdapter.notifyDataSetChanged();
     }//end
 
     private void UploodBG() {

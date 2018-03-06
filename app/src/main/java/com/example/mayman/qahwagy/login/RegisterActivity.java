@@ -92,6 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
                             userInfo.put("image", "");
                             userInfo.put("email", email);
                             userInfo.put("password", pass);
+                            userInfo.put("mobile", " ");
+                            userInfo.put("address", " ");
 
                             databaseReference.setValue(userInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
