@@ -30,7 +30,6 @@
             android:name=".Costa"
             android:label="Costa Cafe" />
         <activity android:name=".OrderA" />
-        <activity android:name=".GroupMembers" />
         <activity android:name=".Result" />
         <activity android:name=".AboutActivity" />
         <activity

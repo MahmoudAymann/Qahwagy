@@ -1,13 +1,9 @@
 package com.example.mayman.qahwagy;
 
-import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Result extends AppCompatActivity {
 
@@ -18,7 +14,6 @@ public class Result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result2);
-
 
         textViewhagm = findViewById(R.id.texthagm);
         textViewhagm.setText(getIntent().getStringExtra("hagm"));
@@ -43,17 +38,17 @@ public class Result extends AppCompatActivity {
         textViewTotal.setText(String.valueOf(num1));
 
         tvTime = findViewById(R.id.textTime);
-reverseTimer(generateInteger(),tvTime);
+        reverseTimer(tvTime);
     }
 
-    private int generateInteger(){
-        Random r = new Random();
-        return r.nextInt(10000 - 600)+600;
-    }
+//    private int generateInteger() {
+//        Random r = new Random();
+//        return r.nextInt(1000 - 100);
+//    }
 
-    public void reverseTimer(int Seconds, final TextView tv) {
+    public void reverseTimer(final TextView tv) {
 
-        countDownTimer = new CountDownTimer(Seconds * 1000 + 1000, 500) {
+        countDownTimer = new CountDownTimer(1200 * 1000 + 1000, 500) {
 
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) (millisUntilFinished / 1000);

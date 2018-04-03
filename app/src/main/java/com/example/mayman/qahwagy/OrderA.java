@@ -45,6 +45,7 @@ public class OrderA extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert firebaseUser != null;
         currentUserId = firebaseUser.getUid();
 
 
@@ -129,23 +130,30 @@ public class OrderA extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String hagm = spinner1.getSelectedItem().toString();
+                final String kemmeya = editText.getText().toString();
+                final String milk = spinner2.getSelectedItem().toString();
+                final String sugar = spinner3.getSelectedItem().toString();
 
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("Order").child(currentUserId).child(checknames);
-
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Requests").child(currentUserId);
                 HashMap<String, String> userInfo = new HashMap<String, String>();
+
                 userInfo.put("name", checknames);
+                userInfo.put("milk", milk);
+                userInfo.put("size", hagm);
+                userInfo.put("sugar", sugar);
+                userInfo.put("quantity", kemmeya);
 
                 databaseReference.setValue(userInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(OrderA.this, "تم الطلب", Toast.LENGTH_SHORT).show();
-                            String hagm = spinner1.getSelectedItem().toString();
-                            String kemmeya = editText.getText().toString();
+
                             Intent intent = new Intent(OrderA.this, Result.class);
                             intent.putExtra("hagm", hagm);
-                            intent.putExtra("halib", spinner2.getSelectedItem().toString());
-                            intent.putExtra("sokkar", spinner3.getSelectedItem().toString());
+                            intent.putExtra("halib", milk);
+                            intent.putExtra("sokkar", sugar);
                             intent.putExtra("kemmeya", kemmeya);
                             startActivity(intent);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

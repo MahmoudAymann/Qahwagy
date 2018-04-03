@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                     loginProgressDialog.setMessage("please wait");
                     loginProgressDialog.setCanceledOnTouchOutside(false);
                     loginProgressDialog.show();
+
                     loginUser(email, pass);
                 }
             }
@@ -71,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             loginProgressDialog.hide();
-                            Toast.makeText(LoginActivity.this, "connection prob", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "login fail", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
